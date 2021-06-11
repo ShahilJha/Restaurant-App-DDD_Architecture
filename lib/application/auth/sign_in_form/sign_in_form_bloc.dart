@@ -85,6 +85,7 @@ class SignInFormBloc extends Bloc<SignInFormEvent, SignInFormState> {
     yield state.copyWith(
       isSubmitting: false,
       showErrorMessages: true,
+      //optionOf() ->S will return none() or some() according to the data null status
       authFailureOrSuccessOption: optionOf(failureOrSuccess),
     );
   }
