@@ -6,21 +6,16 @@ import 'package:restaurant_app/domain/core/value_validators.dart';
 class EmailAddress extends ValueObject<String> {
   final Either<ValueFailure<String>, String> value;
 
-  factory EmailAddress(String input) {
-    assert(input != null);
-    return EmailAddress._(validateEmailAddress(input));
-  }
+  factory EmailAddress(String input) =>
+      EmailAddress._(validateEmailAddress(input));
 
   EmailAddress._(this.value);
 }
 
-class Password extends ValueObject<String>{
+class Password extends ValueObject<String> {
   final Either<ValueFailure<String>, String> value;
 
-  factory Password(String input){
-    assert(input != null);
-    return Password._(validatePassword(input));
-  }
+  factory Password(String input) => Password._(validatePassword(input));
 
   Password._(this.value);
 }
