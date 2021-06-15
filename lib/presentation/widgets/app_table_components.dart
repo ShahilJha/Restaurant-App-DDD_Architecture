@@ -10,11 +10,11 @@ class AppTable extends StatelessWidget {
   final List<TableRow> dataChildren;
 
   const AppTable({
-    Key key,
-    this.children,
-    this.columnWidths,
-    this.headerChildren,
-    this.dataChildren,
+    Key? key,
+    required this.children,
+    required this.columnWidths,
+    required this.headerChildren,
+    required this.dataChildren,
   }) : super(key: key);
 
   @override
@@ -44,7 +44,10 @@ class AppTable extends StatelessWidget {
 
 class AppHeaderCell extends StatelessWidget {
   final String string;
-  const AppHeaderCell({Key key, this.string}) : super(key: key);
+  const AppHeaderCell({
+    Key? key,
+    required this.string,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -61,7 +64,10 @@ class AppHeaderCell extends StatelessWidget {
 
 class AppDataCell extends StatelessWidget {
   final String string;
-  const AppDataCell({Key key, this.string}) : super(key: key);
+  const AppDataCell({
+    Key? key,
+    required this.string,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
