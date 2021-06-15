@@ -4,10 +4,11 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 class AttributeDisplay extends StatelessWidget {
   final String string, attribute;
   AttributeDisplay({
-    @required this.attribute,
-    @required this.string,
+    required this.attribute,
+    required this.string,
   });
 
+  //TODO: change depricated API
   @override
   Widget build(BuildContext context) {
     return Container(
