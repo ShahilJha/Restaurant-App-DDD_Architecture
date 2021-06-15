@@ -17,13 +17,13 @@ class AttributeDisplay extends StatelessWidget {
             '$attribute : ',
             style: TextStyle(
               fontWeight: FontWeight.w600,
-              fontSize: 50.ssp,
+              fontSize: 50.sp,
             ),
           ),
           Text(
             string,
             style: TextStyle(
-              fontSize: 40.ssp,
+              fontSize: 40.sp,
             ),
           ),
         ],

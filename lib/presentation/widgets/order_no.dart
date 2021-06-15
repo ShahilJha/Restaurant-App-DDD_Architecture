@@ -13,7 +13,7 @@ class OrderID extends StatelessWidget {
       child: Text(
         '#$orderID',
         style: TextStyle(
-          fontSize: 40.ssp,
+          fontSize: 40.sp,
           color: Colors.grey,
         ),
       ),

@@ -15,7 +15,7 @@ class Subtitles extends StatelessWidget {
         textAlign: TextAlign.center,
         style: TextStyle(
           fontWeight: FontWeight.w600,
-          fontSize: 80.ssp,
+          fontSize: 80.sp,
           decoration: TextDecoration.underline,
         ),
       ),

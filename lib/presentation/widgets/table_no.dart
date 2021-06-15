@@ -13,7 +13,7 @@ class TableNumber extends StatelessWidget {
     return Text(
       "#$tableNumber",
       style: TextStyle(
-        fontSize: 100.ssp,
+        fontSize: 100.sp,
       ),
     );
   }
