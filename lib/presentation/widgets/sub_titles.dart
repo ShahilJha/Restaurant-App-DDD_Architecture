@@ -3,7 +3,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class Subtitles extends StatelessWidget {
   final String string;
-  Subtitles({this.string});
+  Subtitles({
+    required this.string,
+  });
 
   @override
   Widget build(BuildContext context) {

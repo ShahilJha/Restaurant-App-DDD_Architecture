@@ -81,7 +81,7 @@ class _AppQuantitySelectorState extends State<AppQuantitySelector> {
 class CounterButton extends StatelessWidget {
   final IconData icon;
   final double? iconSize;
-  final Function onPressed;
+  final Function() onPressed;
   final double? height, width;
   const CounterButton({
     Key? key,

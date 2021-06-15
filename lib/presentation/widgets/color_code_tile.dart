@@ -2,9 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ColorCodeTile extends StatelessWidget {
-  final Color color;
+  final Color? color;
 
-  const ColorCodeTile({Key key, this.color}) : super(key: key);
+  const ColorCodeTile({
+    Key? key,
+    this.color,
+  }) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Row(

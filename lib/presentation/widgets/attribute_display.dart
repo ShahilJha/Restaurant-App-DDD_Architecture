@@ -8,7 +8,6 @@ class AttributeDisplay extends StatelessWidget {
     required this.string,
   });
 
-  //TODO: change depricated API
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -22,7 +21,7 @@ class AttributeDisplay extends StatelessWidget {
             ),
           ),
           Text(
-            string ?? '***',
+            string,
             style: TextStyle(
               fontSize: 40.ssp,
             ),

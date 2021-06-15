@@ -3,7 +3,10 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class TableNumber extends StatelessWidget {
   final int tableNumber;
-  const TableNumber({Key key, this.tableNumber}) : super(key: key);
+  const TableNumber({
+    Key? key,
+    required this.tableNumber,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
