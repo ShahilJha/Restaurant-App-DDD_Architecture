@@ -1,19 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+//TODO: change widget to stateless
 class AppQuantitySelector extends StatefulWidget {
   final int quantity;
-  final double quantityFontSize;
+  final double? quantityFontSize;
   final double iconHeight, iconWidth;
-  final Function onQuantityChange;
+  final Function(int) onQuantityChange;
 
   const AppQuantitySelector({
-    Key key,
-    this.quantity,
+    Key? key,
+    required this.quantity,
     this.quantityFontSize,
-    this.iconHeight,
-    this.iconWidth,
-    this.onQuantityChange,
+    required this.iconHeight,
+    required this.iconWidth,
+    required this.onQuantityChange,
   }) : super(key: key);
 
   @override
@@ -21,8 +22,7 @@ class AppQuantitySelector extends StatefulWidget {
 }
 
 class _AppQuantitySelectorState extends State<AppQuantitySelector> {
-  int count;
-//TODO: make use of function(x) voidCallBack to relay count data
+  late int count;
   @override
   void initState() {
     super.initState();
@@ -80,14 +80,14 @@ class _AppQuantitySelectorState extends State<AppQuantitySelector> {
 
 class CounterButton extends StatelessWidget {
   final IconData icon;
-  final double iconSize;
+  final double? iconSize;
   final Function onPressed;
-  final double height, width;
+  final double? height, width;
   const CounterButton({
-    Key key,
-    @required this.icon,
+    Key? key,
+    required this.icon,
     this.iconSize,
-    @required this.onPressed,
+    required this.onPressed,
     this.height,
     this.width,
   }) : super(key: key);
