@@ -3,16 +3,16 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class AppActionChip extends StatelessWidget {
   final String string;
-  final Color backgroundColor;
-  final Function onPressed;
+  final Color? backgroundColor;
+  final Function() onPressed;
   final Color textColor;
-  final EdgeInsetsGeometry padding;
+  final EdgeInsetsGeometry? padding;
   const AppActionChip({
-    Key key,
-    @required this.string,
+    Key? key,
+    required this.string,
     this.backgroundColor,
     this.textColor = Colors.black,
-    @required this.onPressed,
+    required this.onPressed,
     this.padding,
   }) : super(key: key);
 
