@@ -3,11 +3,15 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class KAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String title;
-  final double height;
-  final List<Widget> actions;
+  final double? height;
+  final List<Widget>? actions;
 
-  const KAppBar({Key key, this.title, this.height, this.actions})
-      : super(key: key);
+  const KAppBar({
+    Key? key,
+    required this.title,
+    this.height,
+    this.actions,
+  }) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return AppBar(
