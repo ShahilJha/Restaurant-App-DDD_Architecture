@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class AppTheme {
   static const kPrimaryColor = Color(0xFFD9443A);
@@ -16,10 +17,10 @@ class AppTheme {
 
   static DividerThemeData _getDividerThemeData() {
     return DividerThemeData().copyWith(
-      space: 50,
+      space: 50.w,
       thickness: 1.5,
-      indent: 100,
-      endIndent: 100,
+      indent: 100.w,
+      endIndent: 100.w,
       color: Colors.grey,
     );
   }
