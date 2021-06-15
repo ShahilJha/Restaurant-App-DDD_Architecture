@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class AppTileContainer extends StatelessWidget {
-  final Function onPressed;
+  final Function() onPressed;
   final Widget child;
 
   const AppTileContainer({
-    Key key,
-    @required this.onPressed,
-    @required this.child,
+    Key? key,
+    required this.onPressed,
+    required this.child,
   }) : super(key: key);
 
   @override
