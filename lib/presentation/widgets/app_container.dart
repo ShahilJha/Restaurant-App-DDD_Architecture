@@ -3,7 +3,10 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class AppContainer extends StatelessWidget {
   final Widget child;
-  const AppContainer({Key key, this.child}) : super(key: key);
+  const AppContainer({
+    Key? key,
+    required this.child,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
