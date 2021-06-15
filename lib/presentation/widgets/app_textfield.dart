@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class AppTextField extends StatelessWidget {
-  final EdgeInsetsGeometry padding;
-  final String hint;
-  final Function onChanged;
+  final EdgeInsetsGeometry? padding;
+  final String? hint;
+  final Function(String) onChanged;
   const AppTextField({
-    Key key,
+    Key? key,
     this.padding,
     this.hint,
-    this.onChanged,
+    required this.onChanged,
   }) : super(key: key);
 
   @override
