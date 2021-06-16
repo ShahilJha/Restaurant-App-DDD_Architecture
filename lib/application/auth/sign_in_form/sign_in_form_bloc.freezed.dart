@@ -28,6 +28,16 @@ class _$SignInFormEventTearOff {
     );
   }
 
+  ClearEmailAddress clearEmailAddress() {
+    return const ClearEmailAddress();
+  }
+
+  TogglePasswordObscurity togglePasswordObscurity(bool obscurePassword) {
+    return TogglePasswordObscurity(
+      obscurePassword,
+    );
+  }
+
   RegisterWithEmailAndPasswordPressed registerWithEmailAndPasswordPressed() {
     return const RegisterWithEmailAndPasswordPressed();
   }
@@ -50,6 +60,8 @@ mixin _$SignInFormEvent {
   TResult when<TResult extends Object?>({
     required TResult Function(String emailStr) emailChanged,
     required TResult Function(String passwordStr) passwordChanged,
+    required TResult Function() clearEmailAddress,
+    required TResult Function(bool obscurePassword) togglePasswordObscurity,
     required TResult Function() registerWithEmailAndPasswordPressed,
     required TResult Function() signInWithEmailAndPasswordPressed,
     required TResult Function() signInWithGooglePressed,
@@ -59,6 +71,8 @@ mixin _$SignInFormEvent {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String emailStr)? emailChanged,
     TResult Function(String passwordStr)? passwordChanged,
+    TResult Function()? clearEmailAddress,
+    TResult Function(bool obscurePassword)? togglePasswordObscurity,
     TResult Function()? registerWithEmailAndPasswordPressed,
     TResult Function()? signInWithEmailAndPasswordPressed,
     TResult Function()? signInWithGooglePressed,
@@ -69,6 +83,9 @@ mixin _$SignInFormEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(EmailChanged value) emailChanged,
     required TResult Function(PasswordChanged value) passwordChanged,
+    required TResult Function(ClearEmailAddress value) clearEmailAddress,
+    required TResult Function(TogglePasswordObscurity value)
+        togglePasswordObscurity,
     required TResult Function(RegisterWithEmailAndPasswordPressed value)
         registerWithEmailAndPasswordPressed,
     required TResult Function(SignInWithEmailAndPasswordPressed value)
@@ -81,6 +98,8 @@ mixin _$SignInFormEvent {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(EmailChanged value)? emailChanged,
     TResult Function(PasswordChanged value)? passwordChanged,
+    TResult Function(ClearEmailAddress value)? clearEmailAddress,
+    TResult Function(TogglePasswordObscurity value)? togglePasswordObscurity,
     TResult Function(RegisterWithEmailAndPasswordPressed value)?
         registerWithEmailAndPasswordPressed,
     TResult Function(SignInWithEmailAndPasswordPressed value)?
@@ -176,6 +195,8 @@ class _$EmailChanged implements EmailChanged {
   TResult when<TResult extends Object?>({
     required TResult Function(String emailStr) emailChanged,
     required TResult Function(String passwordStr) passwordChanged,
+    required TResult Function() clearEmailAddress,
+    required TResult Function(bool obscurePassword) togglePasswordObscurity,
     required TResult Function() registerWithEmailAndPasswordPressed,
     required TResult Function() signInWithEmailAndPasswordPressed,
     required TResult Function() signInWithGooglePressed,
@@ -188,6 +209,8 @@ class _$EmailChanged implements EmailChanged {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String emailStr)? emailChanged,
     TResult Function(String passwordStr)? passwordChanged,
+    TResult Function()? clearEmailAddress,
+    TResult Function(bool obscurePassword)? togglePasswordObscurity,
     TResult Function()? registerWithEmailAndPasswordPressed,
     TResult Function()? signInWithEmailAndPasswordPressed,
     TResult Function()? signInWithGooglePressed,
@@ -204,6 +227,9 @@ class _$EmailChanged implements EmailChanged {
   TResult map<TResult extends Object?>({
     required TResult Function(EmailChanged value) emailChanged,
     required TResult Function(PasswordChanged value) passwordChanged,
+    required TResult Function(ClearEmailAddress value) clearEmailAddress,
+    required TResult Function(TogglePasswordObscurity value)
+        togglePasswordObscurity,
     required TResult Function(RegisterWithEmailAndPasswordPressed value)
         registerWithEmailAndPasswordPressed,
     required TResult Function(SignInWithEmailAndPasswordPressed value)
@@ -219,6 +245,8 @@ class _$EmailChanged implements EmailChanged {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(EmailChanged value)? emailChanged,
     TResult Function(PasswordChanged value)? passwordChanged,
+    TResult Function(ClearEmailAddress value)? clearEmailAddress,
+    TResult Function(TogglePasswordObscurity value)? togglePasswordObscurity,
     TResult Function(RegisterWithEmailAndPasswordPressed value)?
         registerWithEmailAndPasswordPressed,
     TResult Function(SignInWithEmailAndPasswordPressed value)?
@@ -310,6 +338,8 @@ class _$PasswordChanged implements PasswordChanged {
   TResult when<TResult extends Object?>({
     required TResult Function(String emailStr) emailChanged,
     required TResult Function(String passwordStr) passwordChanged,
+    required TResult Function() clearEmailAddress,
+    required TResult Function(bool obscurePassword) togglePasswordObscurity,
     required TResult Function() registerWithEmailAndPasswordPressed,
     required TResult Function() signInWithEmailAndPasswordPressed,
     required TResult Function() signInWithGooglePressed,
@@ -322,6 +352,8 @@ class _$PasswordChanged implements PasswordChanged {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String emailStr)? emailChanged,
     TResult Function(String passwordStr)? passwordChanged,
+    TResult Function()? clearEmailAddress,
+    TResult Function(bool obscurePassword)? togglePasswordObscurity,
     TResult Function()? registerWithEmailAndPasswordPressed,
     TResult Function()? signInWithEmailAndPasswordPressed,
     TResult Function()? signInWithGooglePressed,
@@ -338,6 +370,9 @@ class _$PasswordChanged implements PasswordChanged {
   TResult map<TResult extends Object?>({
     required TResult Function(EmailChanged value) emailChanged,
     required TResult Function(PasswordChanged value) passwordChanged,
+    required TResult Function(ClearEmailAddress value) clearEmailAddress,
+    required TResult Function(TogglePasswordObscurity value)
+        togglePasswordObscurity,
     required TResult Function(RegisterWithEmailAndPasswordPressed value)
         registerWithEmailAndPasswordPressed,
     required TResult Function(SignInWithEmailAndPasswordPressed value)
@@ -353,6 +388,8 @@ class _$PasswordChanged implements PasswordChanged {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(EmailChanged value)? emailChanged,
     TResult Function(PasswordChanged value)? passwordChanged,
+    TResult Function(ClearEmailAddress value)? clearEmailAddress,
+    TResult Function(TogglePasswordObscurity value)? togglePasswordObscurity,
     TResult Function(RegisterWithEmailAndPasswordPressed value)?
         registerWithEmailAndPasswordPressed,
     TResult Function(SignInWithEmailAndPasswordPressed value)?
@@ -373,6 +410,264 @@ abstract class PasswordChanged implements SignInFormEvent {
   String get passwordStr => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $PasswordChangedCopyWith<PasswordChanged> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $ClearEmailAddressCopyWith<$Res> {
+  factory $ClearEmailAddressCopyWith(
+          ClearEmailAddress value, $Res Function(ClearEmailAddress) then) =
+      _$ClearEmailAddressCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$ClearEmailAddressCopyWithImpl<$Res>
+    extends _$SignInFormEventCopyWithImpl<$Res>
+    implements $ClearEmailAddressCopyWith<$Res> {
+  _$ClearEmailAddressCopyWithImpl(
+      ClearEmailAddress _value, $Res Function(ClearEmailAddress) _then)
+      : super(_value, (v) => _then(v as ClearEmailAddress));
+
+  @override
+  ClearEmailAddress get _value => super._value as ClearEmailAddress;
+}
+
+/// @nodoc
+
+class _$ClearEmailAddress implements ClearEmailAddress {
+  const _$ClearEmailAddress();
+
+  @override
+  String toString() {
+    return 'SignInFormEvent.clearEmailAddress()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is ClearEmailAddress);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String emailStr) emailChanged,
+    required TResult Function(String passwordStr) passwordChanged,
+    required TResult Function() clearEmailAddress,
+    required TResult Function(bool obscurePassword) togglePasswordObscurity,
+    required TResult Function() registerWithEmailAndPasswordPressed,
+    required TResult Function() signInWithEmailAndPasswordPressed,
+    required TResult Function() signInWithGooglePressed,
+  }) {
+    return clearEmailAddress();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String emailStr)? emailChanged,
+    TResult Function(String passwordStr)? passwordChanged,
+    TResult Function()? clearEmailAddress,
+    TResult Function(bool obscurePassword)? togglePasswordObscurity,
+    TResult Function()? registerWithEmailAndPasswordPressed,
+    TResult Function()? signInWithEmailAndPasswordPressed,
+    TResult Function()? signInWithGooglePressed,
+    required TResult orElse(),
+  }) {
+    if (clearEmailAddress != null) {
+      return clearEmailAddress();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(EmailChanged value) emailChanged,
+    required TResult Function(PasswordChanged value) passwordChanged,
+    required TResult Function(ClearEmailAddress value) clearEmailAddress,
+    required TResult Function(TogglePasswordObscurity value)
+        togglePasswordObscurity,
+    required TResult Function(RegisterWithEmailAndPasswordPressed value)
+        registerWithEmailAndPasswordPressed,
+    required TResult Function(SignInWithEmailAndPasswordPressed value)
+        signInWithEmailAndPasswordPressed,
+    required TResult Function(SignInWithGooglePressed value)
+        signInWithGooglePressed,
+  }) {
+    return clearEmailAddress(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(EmailChanged value)? emailChanged,
+    TResult Function(PasswordChanged value)? passwordChanged,
+    TResult Function(ClearEmailAddress value)? clearEmailAddress,
+    TResult Function(TogglePasswordObscurity value)? togglePasswordObscurity,
+    TResult Function(RegisterWithEmailAndPasswordPressed value)?
+        registerWithEmailAndPasswordPressed,
+    TResult Function(SignInWithEmailAndPasswordPressed value)?
+        signInWithEmailAndPasswordPressed,
+    TResult Function(SignInWithGooglePressed value)? signInWithGooglePressed,
+    required TResult orElse(),
+  }) {
+    if (clearEmailAddress != null) {
+      return clearEmailAddress(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ClearEmailAddress implements SignInFormEvent {
+  const factory ClearEmailAddress() = _$ClearEmailAddress;
+}
+
+/// @nodoc
+abstract class $TogglePasswordObscurityCopyWith<$Res> {
+  factory $TogglePasswordObscurityCopyWith(TogglePasswordObscurity value,
+          $Res Function(TogglePasswordObscurity) then) =
+      _$TogglePasswordObscurityCopyWithImpl<$Res>;
+  $Res call({bool obscurePassword});
+}
+
+/// @nodoc
+class _$TogglePasswordObscurityCopyWithImpl<$Res>
+    extends _$SignInFormEventCopyWithImpl<$Res>
+    implements $TogglePasswordObscurityCopyWith<$Res> {
+  _$TogglePasswordObscurityCopyWithImpl(TogglePasswordObscurity _value,
+      $Res Function(TogglePasswordObscurity) _then)
+      : super(_value, (v) => _then(v as TogglePasswordObscurity));
+
+  @override
+  TogglePasswordObscurity get _value => super._value as TogglePasswordObscurity;
+
+  @override
+  $Res call({
+    Object? obscurePassword = freezed,
+  }) {
+    return _then(TogglePasswordObscurity(
+      obscurePassword == freezed
+          ? _value.obscurePassword
+          : obscurePassword // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$TogglePasswordObscurity implements TogglePasswordObscurity {
+  const _$TogglePasswordObscurity(this.obscurePassword);
+
+  @override
+  final bool obscurePassword;
+
+  @override
+  String toString() {
+    return 'SignInFormEvent.togglePasswordObscurity(obscurePassword: $obscurePassword)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is TogglePasswordObscurity &&
+            (identical(other.obscurePassword, obscurePassword) ||
+                const DeepCollectionEquality()
+                    .equals(other.obscurePassword, obscurePassword)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(obscurePassword);
+
+  @JsonKey(ignore: true)
+  @override
+  $TogglePasswordObscurityCopyWith<TogglePasswordObscurity> get copyWith =>
+      _$TogglePasswordObscurityCopyWithImpl<TogglePasswordObscurity>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String emailStr) emailChanged,
+    required TResult Function(String passwordStr) passwordChanged,
+    required TResult Function() clearEmailAddress,
+    required TResult Function(bool obscurePassword) togglePasswordObscurity,
+    required TResult Function() registerWithEmailAndPasswordPressed,
+    required TResult Function() signInWithEmailAndPasswordPressed,
+    required TResult Function() signInWithGooglePressed,
+  }) {
+    return togglePasswordObscurity(obscurePassword);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String emailStr)? emailChanged,
+    TResult Function(String passwordStr)? passwordChanged,
+    TResult Function()? clearEmailAddress,
+    TResult Function(bool obscurePassword)? togglePasswordObscurity,
+    TResult Function()? registerWithEmailAndPasswordPressed,
+    TResult Function()? signInWithEmailAndPasswordPressed,
+    TResult Function()? signInWithGooglePressed,
+    required TResult orElse(),
+  }) {
+    if (togglePasswordObscurity != null) {
+      return togglePasswordObscurity(obscurePassword);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(EmailChanged value) emailChanged,
+    required TResult Function(PasswordChanged value) passwordChanged,
+    required TResult Function(ClearEmailAddress value) clearEmailAddress,
+    required TResult Function(TogglePasswordObscurity value)
+        togglePasswordObscurity,
+    required TResult Function(RegisterWithEmailAndPasswordPressed value)
+        registerWithEmailAndPasswordPressed,
+    required TResult Function(SignInWithEmailAndPasswordPressed value)
+        signInWithEmailAndPasswordPressed,
+    required TResult Function(SignInWithGooglePressed value)
+        signInWithGooglePressed,
+  }) {
+    return togglePasswordObscurity(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(EmailChanged value)? emailChanged,
+    TResult Function(PasswordChanged value)? passwordChanged,
+    TResult Function(ClearEmailAddress value)? clearEmailAddress,
+    TResult Function(TogglePasswordObscurity value)? togglePasswordObscurity,
+    TResult Function(RegisterWithEmailAndPasswordPressed value)?
+        registerWithEmailAndPasswordPressed,
+    TResult Function(SignInWithEmailAndPasswordPressed value)?
+        signInWithEmailAndPasswordPressed,
+    TResult Function(SignInWithGooglePressed value)? signInWithGooglePressed,
+    required TResult orElse(),
+  }) {
+    if (togglePasswordObscurity != null) {
+      return togglePasswordObscurity(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class TogglePasswordObscurity implements SignInFormEvent {
+  const factory TogglePasswordObscurity(bool obscurePassword) =
+      _$TogglePasswordObscurity;
+
+  bool get obscurePassword => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $TogglePasswordObscurityCopyWith<TogglePasswordObscurity> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -423,6 +718,8 @@ class _$RegisterWithEmailAndPasswordPressed
   TResult when<TResult extends Object?>({
     required TResult Function(String emailStr) emailChanged,
     required TResult Function(String passwordStr) passwordChanged,
+    required TResult Function() clearEmailAddress,
+    required TResult Function(bool obscurePassword) togglePasswordObscurity,
     required TResult Function() registerWithEmailAndPasswordPressed,
     required TResult Function() signInWithEmailAndPasswordPressed,
     required TResult Function() signInWithGooglePressed,
@@ -435,6 +732,8 @@ class _$RegisterWithEmailAndPasswordPressed
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String emailStr)? emailChanged,
     TResult Function(String passwordStr)? passwordChanged,
+    TResult Function()? clearEmailAddress,
+    TResult Function(bool obscurePassword)? togglePasswordObscurity,
     TResult Function()? registerWithEmailAndPasswordPressed,
     TResult Function()? signInWithEmailAndPasswordPressed,
     TResult Function()? signInWithGooglePressed,
@@ -451,6 +750,9 @@ class _$RegisterWithEmailAndPasswordPressed
   TResult map<TResult extends Object?>({
     required TResult Function(EmailChanged value) emailChanged,
     required TResult Function(PasswordChanged value) passwordChanged,
+    required TResult Function(ClearEmailAddress value) clearEmailAddress,
+    required TResult Function(TogglePasswordObscurity value)
+        togglePasswordObscurity,
     required TResult Function(RegisterWithEmailAndPasswordPressed value)
         registerWithEmailAndPasswordPressed,
     required TResult Function(SignInWithEmailAndPasswordPressed value)
@@ -466,6 +768,8 @@ class _$RegisterWithEmailAndPasswordPressed
   TResult maybeMap<TResult extends Object?>({
     TResult Function(EmailChanged value)? emailChanged,
     TResult Function(PasswordChanged value)? passwordChanged,
+    TResult Function(ClearEmailAddress value)? clearEmailAddress,
+    TResult Function(TogglePasswordObscurity value)? togglePasswordObscurity,
     TResult Function(RegisterWithEmailAndPasswordPressed value)?
         registerWithEmailAndPasswordPressed,
     TResult Function(SignInWithEmailAndPasswordPressed value)?
@@ -532,6 +836,8 @@ class _$SignInWithEmailAndPasswordPressed
   TResult when<TResult extends Object?>({
     required TResult Function(String emailStr) emailChanged,
     required TResult Function(String passwordStr) passwordChanged,
+    required TResult Function() clearEmailAddress,
+    required TResult Function(bool obscurePassword) togglePasswordObscurity,
     required TResult Function() registerWithEmailAndPasswordPressed,
     required TResult Function() signInWithEmailAndPasswordPressed,
     required TResult Function() signInWithGooglePressed,
@@ -544,6 +850,8 @@ class _$SignInWithEmailAndPasswordPressed
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String emailStr)? emailChanged,
     TResult Function(String passwordStr)? passwordChanged,
+    TResult Function()? clearEmailAddress,
+    TResult Function(bool obscurePassword)? togglePasswordObscurity,
     TResult Function()? registerWithEmailAndPasswordPressed,
     TResult Function()? signInWithEmailAndPasswordPressed,
     TResult Function()? signInWithGooglePressed,
@@ -560,6 +868,9 @@ class _$SignInWithEmailAndPasswordPressed
   TResult map<TResult extends Object?>({
     required TResult Function(EmailChanged value) emailChanged,
     required TResult Function(PasswordChanged value) passwordChanged,
+    required TResult Function(ClearEmailAddress value) clearEmailAddress,
+    required TResult Function(TogglePasswordObscurity value)
+        togglePasswordObscurity,
     required TResult Function(RegisterWithEmailAndPasswordPressed value)
         registerWithEmailAndPasswordPressed,
     required TResult Function(SignInWithEmailAndPasswordPressed value)
@@ -575,6 +886,8 @@ class _$SignInWithEmailAndPasswordPressed
   TResult maybeMap<TResult extends Object?>({
     TResult Function(EmailChanged value)? emailChanged,
     TResult Function(PasswordChanged value)? passwordChanged,
+    TResult Function(ClearEmailAddress value)? clearEmailAddress,
+    TResult Function(TogglePasswordObscurity value)? togglePasswordObscurity,
     TResult Function(RegisterWithEmailAndPasswordPressed value)?
         registerWithEmailAndPasswordPressed,
     TResult Function(SignInWithEmailAndPasswordPressed value)?
@@ -636,6 +949,8 @@ class _$SignInWithGooglePressed implements SignInWithGooglePressed {
   TResult when<TResult extends Object?>({
     required TResult Function(String emailStr) emailChanged,
     required TResult Function(String passwordStr) passwordChanged,
+    required TResult Function() clearEmailAddress,
+    required TResult Function(bool obscurePassword) togglePasswordObscurity,
     required TResult Function() registerWithEmailAndPasswordPressed,
     required TResult Function() signInWithEmailAndPasswordPressed,
     required TResult Function() signInWithGooglePressed,
@@ -648,6 +963,8 @@ class _$SignInWithGooglePressed implements SignInWithGooglePressed {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String emailStr)? emailChanged,
     TResult Function(String passwordStr)? passwordChanged,
+    TResult Function()? clearEmailAddress,
+    TResult Function(bool obscurePassword)? togglePasswordObscurity,
     TResult Function()? registerWithEmailAndPasswordPressed,
     TResult Function()? signInWithEmailAndPasswordPressed,
     TResult Function()? signInWithGooglePressed,
@@ -664,6 +981,9 @@ class _$SignInWithGooglePressed implements SignInWithGooglePressed {
   TResult map<TResult extends Object?>({
     required TResult Function(EmailChanged value) emailChanged,
     required TResult Function(PasswordChanged value) passwordChanged,
+    required TResult Function(ClearEmailAddress value) clearEmailAddress,
+    required TResult Function(TogglePasswordObscurity value)
+        togglePasswordObscurity,
     required TResult Function(RegisterWithEmailAndPasswordPressed value)
         registerWithEmailAndPasswordPressed,
     required TResult Function(SignInWithEmailAndPasswordPressed value)
@@ -679,6 +999,8 @@ class _$SignInWithGooglePressed implements SignInWithGooglePressed {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(EmailChanged value)? emailChanged,
     TResult Function(PasswordChanged value)? passwordChanged,
+    TResult Function(ClearEmailAddress value)? clearEmailAddress,
+    TResult Function(TogglePasswordObscurity value)? togglePasswordObscurity,
     TResult Function(RegisterWithEmailAndPasswordPressed value)?
         registerWithEmailAndPasswordPressed,
     TResult Function(SignInWithEmailAndPasswordPressed value)?
@@ -706,12 +1028,14 @@ class _$SignInFormStateTearOff {
       required Password password,
       required bool showErrorMessages,
       required bool isSubmitting,
+      required bool obscurePassword,
       required Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption}) {
     return _SignInFormState(
       emailAddress: emailAddress,
       password: password,
       showErrorMessages: showErrorMessages,
       isSubmitting: isSubmitting,
+      obscurePassword: obscurePassword,
       authFailureOrSuccessOption: authFailureOrSuccessOption,
     );
   }
@@ -726,6 +1050,7 @@ mixin _$SignInFormState {
   Password get password => throw _privateConstructorUsedError;
   bool get showErrorMessages => throw _privateConstructorUsedError;
   bool get isSubmitting => throw _privateConstructorUsedError;
+  bool get obscurePassword => throw _privateConstructorUsedError;
   Option<Either<AuthFailure, Unit>> get authFailureOrSuccessOption =>
       throw _privateConstructorUsedError;
 
@@ -744,6 +1069,7 @@ abstract class $SignInFormStateCopyWith<$Res> {
       Password password,
       bool showErrorMessages,
       bool isSubmitting,
+      bool obscurePassword,
       Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption});
 }
 
@@ -762,6 +1088,7 @@ class _$SignInFormStateCopyWithImpl<$Res>
     Object? password = freezed,
     Object? showErrorMessages = freezed,
     Object? isSubmitting = freezed,
+    Object? obscurePassword = freezed,
     Object? authFailureOrSuccessOption = freezed,
   }) {
     return _then(_value.copyWith(
@@ -780,6 +1107,10 @@ class _$SignInFormStateCopyWithImpl<$Res>
       isSubmitting: isSubmitting == freezed
           ? _value.isSubmitting
           : isSubmitting // ignore: cast_nullable_to_non_nullable
+              as bool,
+      obscurePassword: obscurePassword == freezed
+          ? _value.obscurePassword
+          : obscurePassword // ignore: cast_nullable_to_non_nullable
               as bool,
       authFailureOrSuccessOption: authFailureOrSuccessOption == freezed
           ? _value.authFailureOrSuccessOption
@@ -801,6 +1132,7 @@ abstract class _$SignInFormStateCopyWith<$Res>
       Password password,
       bool showErrorMessages,
       bool isSubmitting,
+      bool obscurePassword,
       Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption});
 }
 
@@ -821,6 +1153,7 @@ class __$SignInFormStateCopyWithImpl<$Res>
     Object? password = freezed,
     Object? showErrorMessages = freezed,
     Object? isSubmitting = freezed,
+    Object? obscurePassword = freezed,
     Object? authFailureOrSuccessOption = freezed,
   }) {
     return _then(_SignInFormState(
@@ -840,6 +1173,10 @@ class __$SignInFormStateCopyWithImpl<$Res>
           ? _value.isSubmitting
           : isSubmitting // ignore: cast_nullable_to_non_nullable
               as bool,
+      obscurePassword: obscurePassword == freezed
+          ? _value.obscurePassword
+          : obscurePassword // ignore: cast_nullable_to_non_nullable
+              as bool,
       authFailureOrSuccessOption: authFailureOrSuccessOption == freezed
           ? _value.authFailureOrSuccessOption
           : authFailureOrSuccessOption // ignore: cast_nullable_to_non_nullable
@@ -856,6 +1193,7 @@ class _$_SignInFormState implements _SignInFormState {
       required this.password,
       required this.showErrorMessages,
       required this.isSubmitting,
+      required this.obscurePassword,
       required this.authFailureOrSuccessOption});
 
   @override
@@ -867,11 +1205,13 @@ class _$_SignInFormState implements _SignInFormState {
   @override
   final bool isSubmitting;
   @override
+  final bool obscurePassword;
+  @override
   final Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption;
 
   @override
   String toString() {
-    return 'SignInFormState(emailAddress: $emailAddress, password: $password, showErrorMessages: $showErrorMessages, isSubmitting: $isSubmitting, authFailureOrSuccessOption: $authFailureOrSuccessOption)';
+    return 'SignInFormState(emailAddress: $emailAddress, password: $password, showErrorMessages: $showErrorMessages, isSubmitting: $isSubmitting, obscurePassword: $obscurePassword, authFailureOrSuccessOption: $authFailureOrSuccessOption)';
   }
 
   @override
@@ -890,6 +1230,9 @@ class _$_SignInFormState implements _SignInFormState {
             (identical(other.isSubmitting, isSubmitting) ||
                 const DeepCollectionEquality()
                     .equals(other.isSubmitting, isSubmitting)) &&
+            (identical(other.obscurePassword, obscurePassword) ||
+                const DeepCollectionEquality()
+                    .equals(other.obscurePassword, obscurePassword)) &&
             (identical(other.authFailureOrSuccessOption,
                     authFailureOrSuccessOption) ||
                 const DeepCollectionEquality().equals(
@@ -904,6 +1247,7 @@ class _$_SignInFormState implements _SignInFormState {
       const DeepCollectionEquality().hash(password) ^
       const DeepCollectionEquality().hash(showErrorMessages) ^
       const DeepCollectionEquality().hash(isSubmitting) ^
+      const DeepCollectionEquality().hash(obscurePassword) ^
       const DeepCollectionEquality().hash(authFailureOrSuccessOption);
 
   @JsonKey(ignore: true)
@@ -918,6 +1262,7 @@ abstract class _SignInFormState implements SignInFormState {
       required Password password,
       required bool showErrorMessages,
       required bool isSubmitting,
+      required bool obscurePassword,
       required Option<Either<AuthFailure, Unit>>
           authFailureOrSuccessOption}) = _$_SignInFormState;
 
@@ -929,6 +1274,8 @@ abstract class _SignInFormState implements SignInFormState {
   bool get showErrorMessages => throw _privateConstructorUsedError;
   @override
   bool get isSubmitting => throw _privateConstructorUsedError;
+  @override
+  bool get obscurePassword => throw _privateConstructorUsedError;
   @override
   Option<Either<AuthFailure, Unit>> get authFailureOrSuccessOption =>
       throw _privateConstructorUsedError;

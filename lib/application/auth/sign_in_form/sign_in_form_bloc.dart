@@ -36,6 +36,16 @@ class SignInFormBloc extends Bloc<SignInFormEvent, SignInFormState> {
           authFailureOrSuccessOption: none(),
         );
       },
+      togglePasswordObscurity: (e) async* {
+        yield state.copyWith(
+          obscurePassword: !e.obscurePassword,
+        );
+      },
+      clearEmailAddress: (e) async* {
+        yield state.copyWith(
+          emailAddress: EmailAddress(''),
+        );
+      },
       registerWithEmailAndPasswordPressed: (e) async* {
         yield* _performActionOnAuthFacadeWithEmailAndPassword(
           _authFacade.registerWithEmailAndPassword,

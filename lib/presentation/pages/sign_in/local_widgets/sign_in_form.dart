@@ -41,7 +41,7 @@ class SignInForm extends StatelessWidget {
                           textInputAction: TextInputAction.done,
                           textAlign: TextAlign.center,
                           decoration: InputDecoration(
-                            hintText: 'Email',
+                            labelText: 'Email',
                             prefixIcon: Icon(Icons.mail),
                           ),
                           onChanged: (value) => context
@@ -68,10 +68,20 @@ class SignInForm extends StatelessWidget {
                           keyboardType: TextInputType.emailAddress,
                           textInputAction: TextInputAction.done,
                           textAlign: TextAlign.center,
-                          obscureText: true,
+                          obscureText: state.obscurePassword,
                           decoration: InputDecoration(
-                            hintText: 'Password',
+                            labelText: 'Password',
                             prefixIcon: Icon(Icons.vpn_key),
+                            suffixIcon: IconButton(
+                              icon: state.obscurePassword
+                                  ? Icon(Icons.visibility_off)
+                                  : Icon(Icons.visibility),
+                              onPressed: () {
+                                context.read<SignInFormBloc>().add(
+                                    SignInFormEvent.togglePasswordObscurity(
+                                        state.obscurePassword));
+                              },
+                            ),
                           ),
                           onChanged: (value) => context
                               .read<SignInFormBloc>()
