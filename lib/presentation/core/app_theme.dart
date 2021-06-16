@@ -12,6 +12,18 @@ class AppTheme {
       buttonTheme: _getButtonThemeData(),
       dividerTheme: _getDividerThemeData(),
       checkboxTheme: _getCheckboxThemeData(),
+      inputDecorationTheme: _getInputDecorationThemeData(),
+    );
+  }
+
+  static InputDecorationTheme _getInputDecorationThemeData() {
+    return InputDecorationTheme(
+      focusedBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(100.w),
+      ),
+      border: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(100.w),
+      ),
     );
   }
 
