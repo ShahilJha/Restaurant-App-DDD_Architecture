@@ -12,7 +12,6 @@ class SignInForm extends StatelessWidget {
     return BlocConsumer<SignInFormBloc, SignInFormState>(
       listener: (context, state) {},
       builder: (context, state) {
-        print('LOG-IN PAGE: ${state.showErrorMessages}');
         return SingleChildScrollView(
           child: SizedBox(
             height: 2280.h,
@@ -29,7 +28,6 @@ class SignInForm extends StatelessWidget {
                   autovalidateMode: state.showErrorMessages
                       ? AutovalidateMode.always
                       : AutovalidateMode.disabled,
-                  // autovalidateMode: AutovalidateMode.onUserInteraction,
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     children: [
@@ -100,18 +98,18 @@ class SignInForm extends StatelessWidget {
                       //     });
                       //   },
                       // ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          // Checkbox(
-                          //   value: _rememberMe,
-                          //   onChanged: (value) {},
-                          // ),
-                          Text(
-                            "Remember Me?",
-                          ),
-                        ],
-                      ),
+                      // Row(
+                      //   mainAxisAlignment: MainAxisAlignment.center,
+                      //   children: [
+                      //     Checkbox(
+                      //       value: _rememberMe,
+                      //       onChanged: (value) {},
+                      //     ),
+                      //     Text(
+                      //       "Remember Me?",
+                      //     ),
+                      //   ],
+                      // ),
                     ],
                   ),
                 ),

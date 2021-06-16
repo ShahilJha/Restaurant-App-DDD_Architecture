@@ -12,6 +12,7 @@ class AppWidget extends StatelessWidget {
       designSize: Size(1080, 2280),
       builder: () => MaterialApp(
         title: 'Restaurant Application',
+        debugShowCheckedModeBanner: false,
         theme: AppTheme.generateThemeData(),
         home: FutureBuilder(
           future: Firebase.initializeApp(),
