@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:restaurant_app/presentation/widgets/app_button.dart';
 
@@ -7,54 +8,59 @@ class SignInForm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: SizedBox(
-        height: 2280.h,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Image.asset(
-              'assets/images/logo.png',
-              height: 500.w,
-              width: 500.w,
-            ),
-            Form(
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  _buildEmail(),
-                  _buildPassword(),
-                  // OccupationChips(
-                  //   position: jobPosition,
-                  //   onPressed: (position) {
-                  //     setState(() {
-                  //       jobPosition = position;
-                  //     });
-                  //   },
-                  // ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
+    return BlocConsumer(
+      listener: (context, state) {},
+      builder: (context, state) {
+        return SingleChildScrollView(
+          child: SizedBox(
+            height: 2280.h,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Image.asset(
+                  'assets/images/logo.png',
+                  height: 500.w,
+                  width: 500.w,
+                ),
+                Form(
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
                     children: [
-                      // Checkbox(
-                      //   value: _rememberMe,
-                      //   onChanged: (value) {},
+                      _buildEmail(),
+                      _buildPassword(),
+                      // OccupationChips(
+                      //   position: jobPosition,
+                      //   onPressed: (position) {
+                      //     setState(() {
+                      //       jobPosition = position;
+                      //     });
+                      //   },
                       // ),
-                      Text(
-                        "Remember Me?",
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          // Checkbox(
+                          //   value: _rememberMe,
+                          //   onChanged: (value) {},
+                          // ),
+                          Text(
+                            "Remember Me?",
+                          ),
+                        ],
                       ),
                     ],
                   ),
-                ],
-              ),
+                ),
+                AppButton(
+                  text: 'Log-in',
+                  onPressed: () {},
+                ),
+              ],
             ),
-            AppButton(
-              text: 'Log-in',
-              onPressed: () {},
-            ),
-          ],
-        ),
-      ),
+          ),
+        );
+      },
     );
   }
 
