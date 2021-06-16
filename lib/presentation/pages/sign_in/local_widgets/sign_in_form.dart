@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:restaurant_app/application/auth/sign_in_form/sign_in_form_bloc.dart';
 import 'package:restaurant_app/presentation/widgets/app_button.dart';
 
 class SignInForm extends StatelessWidget {
@@ -8,7 +9,7 @@ class SignInForm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer(
+    return BlocConsumer<SignInFormBloc, SignInFormState>(
       listener: (context, state) {},
       builder: (context, state) {
         return SingleChildScrollView(
