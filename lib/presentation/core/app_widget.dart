@@ -1,7 +1,9 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:restaurant_app/presentation/core/app_theme.dart';
 import 'package:restaurant_app/presentation/pages/sign_in/sign_in_page.dart';
+import 'package:restaurant_app/presentation/splash/splash_page.dart';
 
 class AppWidget extends StatelessWidget {
   @override
@@ -11,7 +13,22 @@ class AppWidget extends StatelessWidget {
       builder: () => MaterialApp(
         title: 'Restaurant Application',
         theme: AppTheme.generateThemeData(),
-        home: SignInPage(),
+        home: FutureBuilder(
+          future: Firebase.initializeApp(),
+          builder: (context, snapshot) {
+            if (snapshot.hasError) {
+              return const Scaffold(
+                body: Center(
+                  child: CircularProgressIndicator(),
+                ),
+              );
+            }
+            if (snapshot.connectionState == ConnectionState.done) {
+              return SignInPage();
+            }
+            return SplashPage();
+          },
+        ),
       ),
     );
   }
