@@ -12,6 +12,7 @@ class SignInForm extends StatelessWidget {
     return BlocConsumer<SignInFormBloc, SignInFormState>(
       listener: (context, state) {},
       builder: (context, state) {
+        print('LOG-IN PAGE: ${state.showErrorMessages}');
         return SingleChildScrollView(
           child: SizedBox(
             height: 2280.h,
@@ -25,11 +26,72 @@ class SignInForm extends StatelessWidget {
                   width: 500.w,
                 ),
                 Form(
+                  autovalidateMode: state.showErrorMessages
+                      ? AutovalidateMode.always
+                      : AutovalidateMode.disabled,
+                  // autovalidateMode: AutovalidateMode.onUserInteraction,
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      _buildEmail(),
-                      _buildPassword(),
+                      Container(
+                        padding: EdgeInsets.symmetric(horizontal: 100.w),
+                        margin: EdgeInsets.symmetric(vertical: 25.w),
+                        child: TextFormField(
+                          autofocus: true,
+                          autocorrect: false,
+                          keyboardType: TextInputType.emailAddress,
+                          textInputAction: TextInputAction.done,
+                          textAlign: TextAlign.center,
+                          decoration: InputDecoration(
+                            hintText: 'Email',
+                            prefixIcon: Icon(Icons.mail),
+                          ),
+                          onChanged: (value) => context
+                              .read<SignInFormBloc>()
+                              .add(SignInFormEvent.emailChanged(value)),
+                          validator: (_) => context
+                              .read<SignInFormBloc>()
+                              .state
+                              .emailAddress
+                              .value
+                              .fold(
+                                (f) => f.maybeMap(
+                                  invalidEmail: (_) => 'Invalid Email',
+                                  orElse: () => null,
+                                ),
+                                (_) => null,
+                              ),
+                        ),
+                      ),
+                      Container(
+                        padding: EdgeInsets.symmetric(horizontal: 100.w),
+                        margin: EdgeInsets.symmetric(vertical: 25.w),
+                        child: TextFormField(
+                          keyboardType: TextInputType.emailAddress,
+                          textInputAction: TextInputAction.done,
+                          textAlign: TextAlign.center,
+                          obscureText: true,
+                          decoration: InputDecoration(
+                            hintText: 'Password',
+                            prefixIcon: Icon(Icons.vpn_key),
+                          ),
+                          onChanged: (value) => context
+                              .read<SignInFormBloc>()
+                              .add(SignInFormEvent.passwordChanged(value)),
+                          validator: (_) => context
+                              .read<SignInFormBloc>()
+                              .state
+                              .password
+                              .value
+                              .fold(
+                                (f) => f.maybeMap(
+                                  shortPassword: (_) => 'Short Password',
+                                  orElse: () => null,
+                                ),
+                                (_) => null,
+                              ),
+                        ),
+                      ),
                       // OccupationChips(
                       //   position: jobPosition,
                       //   onPressed: (position) {
@@ -55,7 +117,12 @@ class SignInForm extends StatelessWidget {
                 ),
                 AppButton(
                   text: 'Log-in',
-                  onPressed: () {},
+                  onPressed: () {
+                    context.read<SignInFormBloc>().add(
+                          const SignInFormEvent
+                              .signInWithEmailAndPasswordPressed(),
+                        );
+                  },
                 ),
               ],
             ),
@@ -64,35 +131,4 @@ class SignInForm extends StatelessWidget {
       },
     );
   }
-
-  Widget _buildEmail() => Container(
-        padding: EdgeInsets.symmetric(horizontal: 100.w),
-        margin: EdgeInsets.symmetric(vertical: 25.w),
-        child: TextFormField(
-          autofocus: true,
-          autocorrect: false,
-          keyboardType: TextInputType.emailAddress,
-          textInputAction: TextInputAction.done,
-          textAlign: TextAlign.center,
-          decoration: InputDecoration(
-            hintText: 'Email',
-            prefixIcon: Icon(Icons.mail),
-          ),
-        ),
-      );
-
-  Widget _buildPassword() => Container(
-        padding: EdgeInsets.symmetric(horizontal: 100.w),
-        margin: EdgeInsets.symmetric(vertical: 25.w),
-        child: TextFormField(
-          keyboardType: TextInputType.emailAddress,
-          textInputAction: TextInputAction.done,
-          textAlign: TextAlign.center,
-          obscureText: true,
-          decoration: InputDecoration(
-            hintText: 'Password',
-            prefixIcon: Icon(Icons.vpn_key),
-          ),
-        ),
-      );
 }
