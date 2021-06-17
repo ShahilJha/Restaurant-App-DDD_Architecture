@@ -43,6 +43,16 @@ class SignInForm extends StatelessWidget {
                           decoration: InputDecoration(
                             labelText: 'Email',
                             prefixIcon: Icon(Icons.mail),
+                            // suffixIcon: //condition
+                            //     ? Container(width: 0)
+                            //     : IconButton(
+                            //         icon: Icon(Icons.close),
+                            //         onPressed: () =>
+                            //             context.read<SignInFormBloc>().add(
+                            //                   const SignInFormEvent
+                            //                       .clearEmailAddress(),
+                            //                 ),
+                            //       ),
                           ),
                           onChanged: (value) => context
                               .read<SignInFormBloc>()

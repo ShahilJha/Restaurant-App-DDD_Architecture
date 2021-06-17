@@ -44,6 +44,7 @@ class SignInFormBloc extends Bloc<SignInFormEvent, SignInFormState> {
       clearEmailAddress: (e) async* {
         yield state.copyWith(
           emailAddress: EmailAddress(''),
+          authFailureOrSuccessOption: none(),
         );
       },
       registerWithEmailAndPasswordPressed: (e) async* {
