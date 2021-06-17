@@ -1,3 +1,4 @@
+import 'package:flash/flash.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -10,7 +11,54 @@ class SignInForm extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<SignInFormBloc, SignInFormState>(
-      listener: (context, state) {},
+      listener: (context, state) {
+        state.authFailureOrSuccessOption.fold(
+          () {
+            //none()
+          },
+          //some()
+          (either) => either.fold(
+            //AuthFailures
+            (failure) {
+              showFlash(
+                context: context,
+                duration: const Duration(seconds: 3),
+                builder: (context, controller) {
+                  return Flash.bar(
+                    controller: controller,
+                    backgroundColor: Theme.of(context).primaryColor,
+                    enableVerticalDrag: true,
+                    horizontalDismissDirection:
+                        HorizontalDismissDirection.horizontal,
+                    position: FlashPosition.bottom,
+                    margin: const EdgeInsets.all(8),
+                    borderRadius: const BorderRadius.all(Radius.circular(8)),
+                    forwardAnimationCurve: Curves.easeOutBack,
+                    reverseAnimationCurve: Curves.slowMiddle,
+                    child: FlashBar(
+                      content: Text(
+                        failure.map(
+                          cancelledByUser: (_) => 'Cancelled',
+                          serverError: (_) => 'Server Error',
+                          emailAlreadyInUse: (_) => 'Email Already in Use',
+                          invalidEmailAndPasswordCombination: (_) =>
+                              'Invalid Email and Password Combination',
+                        ),
+                        textAlign: TextAlign.center,
+                        style: TextStyle(color: Colors.white),
+                      ),
+                    ),
+                  );
+                },
+              );
+            },
+            //Unit()
+            (_) {
+              //Navigation
+            },
+          ),
+        );
+      },
       builder: (context, state) {
         return SingleChildScrollView(
           child: SizedBox(
@@ -139,6 +187,14 @@ class SignInForm extends StatelessWidget {
                     context.read<SignInFormBloc>().add(
                           const SignInFormEvent
                               .signInWithEmailAndPasswordPressed(),
+                        );
+                  },
+                ),
+                AppButton(
+                  text: 'Log-in By Google',
+                  onPressed: () {
+                    context.read<SignInFormBloc>().add(
+                          const SignInFormEvent.signInWithGooglePressed(),
                         );
                   },
                 ),
