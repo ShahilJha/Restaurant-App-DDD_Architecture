@@ -33,6 +33,7 @@ abstract class ValueObject<T> {
 }
 
 class UniqueId extends ValueObject<String> {
+  @override
   final Either<ValueFailure<String>, String> value;
 
   factory UniqueId() {
