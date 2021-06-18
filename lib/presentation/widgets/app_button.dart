@@ -17,10 +17,12 @@ class AppButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.symmetric(vertical: 25.w, horizontal: 25.w),
-      child: RaisedButton(
-        padding: EdgeInsets.symmetric(vertical: 50.w),
-        // shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(50)),
+      child: ElevatedButton(
         onPressed: onPressed,
+        style: ElevatedButton.styleFrom(
+          primary: color ?? Theme.of(context).primaryColor,
+          padding: EdgeInsets.symmetric(vertical: 50.w),
+        ),
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 50.w),
           child: Text(
@@ -31,7 +33,6 @@ class AppButton extends StatelessWidget {
             ),
           ),
         ),
-        color: color ?? Theme.of(context).primaryColor,
       ),
     );
   }

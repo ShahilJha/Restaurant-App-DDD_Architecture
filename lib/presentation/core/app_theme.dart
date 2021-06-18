@@ -13,47 +13,50 @@ class AppTheme {
       dividerTheme: _getDividerThemeData(),
       checkboxTheme: _getCheckboxThemeData(),
       inputDecorationTheme: _getInputDecorationThemeData(),
+      elevatedButtonTheme: _getElevatedButtonThemeData(),
     );
   }
 
-  static InputDecorationTheme _getInputDecorationThemeData() {
-    return InputDecorationTheme(
-      focusedBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(100.w),
-      ),
-      border: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(100.w),
-      ),
-    );
-  }
+  static ElevatedButtonThemeData _getElevatedButtonThemeData() =>
+      ElevatedButtonThemeData(
+        style: ElevatedButton.styleFrom(
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(50)),
+        ),
+      );
 
-  static DividerThemeData _getDividerThemeData() {
-    return DividerThemeData().copyWith(
-      space: 50.w,
-      thickness: 1.5,
-      indent: 100.w,
-      endIndent: 100.w,
-      color: Colors.grey,
-    );
-  }
+  static InputDecorationTheme _getInputDecorationThemeData() =>
+      InputDecorationTheme(
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(100.w),
+        ),
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(100.w),
+        ),
+      );
 
-  static ButtonThemeData _getButtonThemeData() {
-    return ButtonThemeData().copyWith(
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(50)),
-      textTheme: ButtonTextTheme.primary,
-    );
-  }
+  static DividerThemeData _getDividerThemeData() => DividerThemeData().copyWith(
+        space: 50.w,
+        thickness: 1.5,
+        indent: 100.w,
+        endIndent: 100.w,
+        color: Colors.grey,
+      );
 
-  static CheckboxThemeData _getCheckboxThemeData() {
-    return CheckboxThemeData().copyWith(
-      fillColor: MaterialStateColor.resolveWith(
-        (states) {
-          if (states.contains(MaterialState.selected)) {
-            return kPrimaryColor; // the color when checkbox is selected;
-          }
-          return kPrimaryColor; //the color when checkbox is unselected;
-        },
-      ),
-    );
-  }
+  static ButtonThemeData _getButtonThemeData() => ButtonThemeData().copyWith(
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(50)),
+        textTheme: ButtonTextTheme.primary,
+      );
+
+  static CheckboxThemeData _getCheckboxThemeData() =>
+      CheckboxThemeData().copyWith(
+        fillColor: MaterialStateColor.resolveWith(
+          (states) {
+            if (states.contains(MaterialState.selected)) {
+              return kPrimaryColor; // the color when checkbox is selected;
+            }
+            return kPrimaryColor; //the color when checkbox is unselected;
+          },
+        ),
+      );
 }
