@@ -5,8 +5,8 @@ class SignInFormEvent with _$SignInFormEvent {
   const factory SignInFormEvent.emailChanged(String emailStr) = EmailChanged;
   const factory SignInFormEvent.passwordChanged(String passwordStr) =
       PasswordChanged;
-  const factory SignInFormEvent.clearEmailAddress() = ClearEmailAddress;
-  const factory SignInFormEvent.togglePasswordObscurity(bool obscurePassword) =
+  const factory SignInFormEvent.clearedEmailAddress() = ClearEmailAddress;
+  const factory SignInFormEvent.toggledPasswordObscurity(bool obscurePassword) =
       TogglePasswordObscurity;
   const factory SignInFormEvent.registerWithEmailAndPasswordPressed() =
       RegisterWithEmailAndPasswordPressed;

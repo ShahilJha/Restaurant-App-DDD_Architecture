@@ -136,7 +136,7 @@ class SignInForm extends StatelessWidget {
                                   : Icon(Icons.visibility),
                               onPressed: () {
                                 context.read<SignInFormBloc>().add(
-                                    SignInFormEvent.togglePasswordObscurity(
+                                    SignInFormEvent.toggledPasswordObscurity(
                                         state.obscurePassword));
                               },
                             ),
