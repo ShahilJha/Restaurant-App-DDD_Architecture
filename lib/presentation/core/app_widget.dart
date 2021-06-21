@@ -4,10 +4,10 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:restaurant_app/application/auth/auth_bloc.dart';
 import 'package:restaurant_app/injection.dart';
 import 'package:restaurant_app/presentation/core/app_theme.dart';
-import 'package:restaurant_app/presentation/pages/sign_in/sign_in_page.dart';
-import 'package:restaurant_app/presentation/splash/splash_page.dart';
+import 'package:restaurant_app/presentation/routes/router.gr.dart' as appRoute;
 
 class AppWidget extends StatelessWidget {
+  final _router = appRoute.Router();
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
@@ -19,11 +19,13 @@ class AppWidget extends StatelessWidget {
                 getIt<AuthBloc>()..add(AuthEvent.authCheckRequested()),
           ),
         ],
-        child: MaterialApp(
+        child: MaterialApp.router(
           title: 'Restaurant Application',
           debugShowCheckedModeBanner: false,
           theme: AppTheme.generateThemeData(),
-          home: SplashPage(),
+          routerDelegate: _router.delegate(),
+          routeInformationParser: _router.defaultRouteParser(),
+          // home: SplashPage(),
         ),
       ),
     );

@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -16,7 +17,8 @@ class SplashPage extends StatelessWidget {
             print('authenticated');
           },
           unauthenticated: (_) {
-            print('authenticated');
+            print('unauthenticated');
+            AutoRouter.of(context).replaceNamed('/sign-in-page');
           },
         );
       },
