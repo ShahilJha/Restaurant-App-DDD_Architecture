@@ -1,6 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:restaurant_app/domain/auth/auth_failure.dart';
-import 'package:restaurant_app/domain/auth/user.dart';
+import 'package:restaurant_app/domain/core/entities/user.dart';
 import './value_objects.dart';
 
 abstract class IAuthFacade {

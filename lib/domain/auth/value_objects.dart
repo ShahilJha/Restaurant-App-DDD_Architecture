@@ -1,7 +1,7 @@
 import 'package:dartz/dartz.dart';
-import 'package:restaurant_app/domain/core/failures.dart';
-import 'package:restaurant_app/domain/core/value_objects.dart';
-import 'package:restaurant_app/domain/core/value_validators.dart';
+import 'package:restaurant_app/domain/core/failures/failures.dart';
+import 'package:restaurant_app/domain/core/value_objects/value_object.dart';
+import 'package:restaurant_app/domain/core/value_validators/value_validators.dart';
 
 class EmailAddress extends ValueObject<String> {
   @override

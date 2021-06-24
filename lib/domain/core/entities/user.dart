@@ -1,5 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:restaurant_app/domain/core/value_objects.dart';
+import 'package:restaurant_app/domain/core/value_objects/unique_id.dart';
 
 part 'user.freezed.dart';
 

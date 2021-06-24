@@ -1,4 +1,4 @@
-import 'package:restaurant_app/domain/core/failures.dart';
+import 'package:restaurant_app/domain/core/failures/failures.dart';
 
 ///this is not a Failure, rather they are errors specially thrown to crash an app.
 class UnexpectedValueError extends Error {
