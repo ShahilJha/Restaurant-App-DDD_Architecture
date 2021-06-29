@@ -91,15 +91,17 @@ class SignInForm extends StatelessWidget {
                           decoration: InputDecoration(
                             labelText: 'Email',
                             prefixIcon: Icon(Icons.mail),
-                            // suffixIcon: //condition
+                            // suffixIcon: state.emailAddress.getValueLength() == 0
                             //     ? Container(width: 0)
                             //     : IconButton(
                             //         icon: Icon(Icons.close),
-                            //         onPressed: () =>
-                            //             context.read<SignInFormBloc>().add(
-                            //                   const SignInFormEvent
-                            //                       .clearEmailAddress(),
-                            //                 ),
+                            //         onPressed: () {
+                            //           print('cross pressed');
+                            //           context.read<SignInFormBloc>().add(
+                            //                 const SignInFormEvent.emailChanged(
+                            //                     ''),
+                            //               );
+                            //         },
                             //       ),
                           ),
                           onChanged: (value) => context
@@ -195,6 +197,15 @@ class SignInForm extends StatelessWidget {
                   onPressed: () {
                     context.read<SignInFormBloc>().add(
                           const SignInFormEvent.signInWithGooglePressed(),
+                        );
+                  },
+                ),
+                AppButton(
+                  text: 'Register',
+                  onPressed: () {
+                    context.read<SignInFormBloc>().add(
+                          const SignInFormEvent
+                              .registerWithEmailAndPasswordPressed(),
                         );
                   },
                 ),

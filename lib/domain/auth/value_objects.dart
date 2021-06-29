@@ -10,6 +10,11 @@ class EmailAddress extends ValueObject<String> {
   factory EmailAddress(String input) =>
       EmailAddress._(validateEmailAddress(input));
 
+  int getValueLength() {
+    int length = value.fold((l) => l.failedValue.length, (r) => r.length);
+    return length;
+  }
+
   EmailAddress._(this.value);
 }
 
